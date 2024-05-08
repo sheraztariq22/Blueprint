@@ -1,0 +1,21 @@
+# Create a Kubernetes Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+  namespace: blueprint
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blueprint
+  template:
+    metadata:
+      labels:
+        app: blueprint
+    spec:
+      containers:
+        - name: my-container
+          image: sheraztariq22/blueprint:latest
+          ports:
+            - containerPort: 8080
